@@ -1,0 +1,71 @@
+{
+  "name": "smart-agent",
+  "version": "0.1.0",
+  "description": "SMART principles-based multi-agent workflow for task quality optimization",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "SKILL.md",
+    "README.md",
+    "README_CN.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "clean": "rm -rf dist coverage node_modules",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "smart",
+    "agent",
+    "workflow",
+    "task-management",
+    "multi-agent",
+    "opencode",
+    "claude-code",
+    "codex",
+    "hermes",
+    "i18n",
+    "typescript"
+  ],
+  "author": "Smart Agent Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wzzheng686/smart-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wzzheng686/smart-agent/issues"
+  },
+  "homepage": "https://github.com/wzzheng686/smart-agent#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6",
+    "uuid": "^9.0.0",
+    "vitest": "^0.34.0"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}

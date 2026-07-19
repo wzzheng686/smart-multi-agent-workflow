@@ -1,0 +1,114 @@
+{
+  "common": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info",
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "deleting": "Deleting...",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK"
+  },
+  "task": {
+    "created": "Task {{taskId}} created successfully",
+    "updated": "Task {{taskId}} updated successfully",
+    "deleted": "Task {{taskId}} deleted successfully",
+    "completed": "Task {{taskId}} completed",
+    "failed": "Task {{taskId}} failed: {{reason}}",
+    "in_progress": "Task {{taskId}} is in progress",
+    "pending": "Task {{taskId}} is pending",
+    "title": "Task",
+    "description": "Description",
+    "priority": "Priority",
+    "status": "Status",
+    "assignee": "Assignee",
+    "due_date": "Due Date"
+  },
+  "smart": {
+    "specific": "Specific",
+    "measurable": "Measurable",
+    "achievable": "Achievable",
+    "relevant": "Relevant",
+    "time_bound": "Time Bound",
+    "score": "SMART Score: {{score}}%",
+    "validation_passed": "SMART validation passed",
+    "validation_failed": "SMART validation failed: {{reason}}"
+  },
+  "dispatch": {
+    "sending": "Dispatching task to {{platform}}...",
+    "received": "Task received by {{platform}}",
+    "completed": "Task dispatch completed",
+    "failed": "Task dispatch failed: {{reason}}",
+    "retrying": "Retrying dispatch (attempt {{attempt}})...",
+    "timeout": "Dispatch timeout after {{timeout}}ms"
+  },
+  "self_check": {
+    "title": "Self-Check Report",
+    "generating": "Generating self-check report...",
+    "completed": "Self-check report generated",
+    "overall_score": "Overall Score: {{score}}%",
+    "confidence_level": "Confidence Level: {{level}}",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "deliverables_completed": "Deliverables Completed",
+    "acceptance_criteria_met": "Acceptance Criteria Met"
+  },
+  "acceptance": {
+    "title": "Acceptance Report",
+    "generating": "Generating acceptance report...",
+    "completed": "Acceptance report generated",
+    "accepted": "Task {{taskId}} accepted with score {{score}}%",
+    "rejected": "Task {{taskId}} rejected: {{reason}}",
+    "conditional": "Task {{taskId}} conditionally accepted: {{reason}}",
+    "decision": "Decision: {{decision}}",
+    "rationale": "Rationale: {{rationale}}"
+  },
+  "archive": {
+    "title": "Workflow Archive",
+    "creating": "Creating workflow archive...",
+    "completed": "Archive created successfully",
+    "installing": "Installing workflow archive...",
+    "installed": "Archive installed successfully",
+    "validation_passed": "Archive validation passed",
+    "validation_failed": "Archive validation failed: {{reason}}",
+    "exporting": "Exporting workflow archive...",
+    "exported": "Archive exported successfully"
+  },
+  "platform": {
+    "opencode": "OpenCode",
+    "claude_code": "Claude Code",
+    "codex": "Codex",
+    "hermes": "Hermes",
+    "detected": "Detected platform: {{platform}}",
+    "unsupported": "Unsupported platform: {{platform}}",
+    "switching": "Switching to {{platform}}..."
+  },
+  "i18n": {
+    "language_detected": "Language detected: {{language}}",
+    "language_switched": "Language switched to {{language}}",
+    "template_loaded": "Template loaded: {{template}}",
+    "template_not_found": "Template not found: {{template}}"
+  },
+  "error": {
+    "validation_failed": "Validation failed: {{reason}}",
+    "file_not_found": "File not found: {{path}}",
+    "permission_denied": "Permission denied: {{path}}",
+    "network_error": "Network error: {{message}}",
+    "timeout_error": "Operation timed out after {{timeout}}ms",
+    "unknown_error": "Unknown error occurred"
+  },
+  "help": {
+    "task_definition": "SMART Task Definition Skill",
+    "task_dispatch": "SMART Task Dispatch Skill",
+    "self_check": "SMART Self-Check Skill",
+    "acceptance": "SMART Acceptance Skill",
+    "archive": "Workflow Archive Skill",
+    "multi_platform": "Multi-Platform Adapter Skill",
+    "i18n": "i18n Support Skill"
+  }
+}

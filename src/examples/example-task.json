@@ -1,0 +1,94 @@
+{
+  "task_id": "auth-001",
+  "specific": "Implement JWT-based user authentication with login, logout, and token refresh endpoints",
+  "measurable": "Auth middleware handles 100% of protected routes, login/logout work end-to-end, token refresh prevents session expiry, all tests pass with >90% coverage",
+  "achievable": "Using existing Express framework, JWT library already in dependencies, user model exists in src/models/user.ts",
+  "relevant": "Required for all user-facing features, blocks profile and settings implementation, security foundation for the application",
+  "time_bound": "Complete within 2 hours, tests must pass before submission",
+  "deliverables": [
+    {
+      "name": "auth-middleware.ts",
+      "type": "file",
+      "path": "src/middleware/auth.ts",
+      "description": "JWT verification middleware for protected routes"
+    },
+    {
+      "name": "auth-routes.ts",
+      "type": "file",
+      "path": "src/routes/auth.ts",
+      "description": "Login, logout, and token refresh endpoints"
+    },
+    {
+      "name": "auth.test.ts",
+      "type": "test",
+      "path": "tests/auth.test.ts",
+      "description": "Unit tests with 90%+ coverage"
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "criterion": "POST /api/auth/login returns JWT token on valid credentials",
+      "verifiable": true,
+      "method": "Run integration test with valid user credentials"
+    },
+    {
+      "criterion": "POST /api/auth/logout invalidates refresh token",
+      "verifiable": true,
+      "method": "Verify refresh token is blacklisted after logout"
+    },
+    {
+      "criterion": "GET /api/auth/refresh generates new access token",
+      "verifiable": true,
+      "method": "Use valid refresh token to get new access token"
+    },
+    {
+      "criterion": "Protected routes return 401 without valid token",
+      "verifiable": true,
+      "method": "Request protected endpoint without Authorization header"
+    },
+    {
+      "criterion": "All tests pass with >90% coverage",
+      "verifiable": true,
+      "method": "Run npm test -- --coverage"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Express.js framework",
+      "type": "library",
+      "path": "node_modules/express",
+      "required": true
+    },
+    {
+      "name": "jsonwebtoken library",
+      "type": "library",
+      "path": "node_modules/jsonwebtoken",
+      "required": true
+    },
+    {
+      "name": "User model",
+      "type": "file",
+      "path": "src/models/user.ts",
+      "required": true
+    }
+  ],
+  "risks": [
+    {
+      "risk": "Token refresh edge cases may need careful handling",
+      "impact": "medium",
+      "mitigation": "Review existing token refresh patterns in the codebase"
+    },
+    {
+      "risk": "Must coordinate with existing session management",
+      "impact": "high",
+      "mitigation": "Check for existing session handling and integrate properly"
+    }
+  ],
+  "dependencies": [],
+  "metadata": {
+    "priority": "high",
+    "complexity": "moderate",
+    "estimated_hours": 2,
+    "tags": ["security", "authentication", "backend"]
+  }
+}

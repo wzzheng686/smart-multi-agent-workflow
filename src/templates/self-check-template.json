@@ -1,0 +1,74 @@
+{
+  "task_id": "{{TASK_ID}}",
+  "subagent_id": "{{SUBAGENT_ID}}",
+  "check_timestamp": "{{TIMESTAMP}}",
+  "completion_percentage": 0,
+  "smart_scores": {
+    "specific": {
+      "score": 0,
+      "evidence": "{{SPECIFIC_EVIDENCE}}",
+      "issues": []
+    },
+    "measurable": {
+      "score": 0,
+      "evidence": "{{MEASURABLE_EVIDENCE}}",
+      "issues": []
+    },
+    "achievable": {
+      "score": 0,
+      "evidence": "{{ACHIEVABLE_EVIDENCE}}",
+      "issues": []
+    },
+    "relevant": {
+      "score": 0,
+      "evidence": "{{RELEVANT_EVIDENCE}}",
+      "issues": []
+    },
+    "time_bound": {
+      "score": 0,
+      "evidence": "{{TIME_BOUND_EVIDENCE}}",
+      "issues": []
+    }
+  },
+  "overall_score": 0,
+  "deliverables_completed": [
+    {
+      "name": "{{DELIVERABLE_NAME}}",
+      "path": "{{DELIVERABLE_PATH}}",
+      "status": "complete",
+      "evidence": "{{DELIVERABLE_EVIDENCE}}"
+    }
+  ],
+  "acceptance_criteria_met": [
+    {
+      "criterion": "{{CRITERION_TEXT}}",
+      "met": true,
+      "evidence": "{{CRITERION_EVIDENCE}}"
+    }
+  ],
+  "issues_found": [
+    {
+      "severity": "minor",
+      "description": "{{ISSUE_DESCRIPTION}}",
+      "resolution": "{{ISSUE_RESOLUTION}}"
+    }
+  ],
+  "test_results": {
+    "tests_passed": true,
+    "test_output": "{{TEST_OUTPUT}}",
+    "coverage": 0,
+    "lint_passed": true,
+    "type_check_passed": true,
+    "build_passed": true
+  },
+  "confidence_level": "medium",
+  "notes": "{{ADDITIONAL_NOTES}}",
+  "evidence": [
+    {
+      "type": "file",
+      "description": "{{EVIDENCE_DESCRIPTION}}",
+      "path": "{{EVIDENCE_PATH}}",
+      "content": "{{EVIDENCE_CONTENT}}"
+    }
+  ]
+}

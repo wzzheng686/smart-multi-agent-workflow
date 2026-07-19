@@ -1,9 +1,9 @@
-# Smart Multi-Agent Workflow
+# Smart Agent
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 
-A SMART principles-based multi-agent workflow system for task quality and efficiency optimization.
+SMART principles-based multi-agent workflow for task quality optimization.
 
 ## Features
 
@@ -22,10 +22,10 @@ The easiest way to install the skill is using the `npx skills add` command:
 
 ```bash
 # Install globally (available to all projects)
-npx skills add wzzheng686/smart-multi-agent-workflow -g
+npx skills add wzzheng686/smart-agent -g
 
 # Or install to current project only
-npx skills add wzzheng686/smart-multi-agent-workflow
+npx skills add wzzheng686/smart-agent
 ```
 
 After installation, the skill will be available in your AI agent's skill list.
@@ -35,8 +35,8 @@ After installation, the skill will be available in your AI agent's skill list.
 You can ask your AI agent to install this skill for you. Simply provide this README link to your agent and ask it to follow the installation instructions.
 
 **Example prompts:**
-- "Install the smart-agent skill from https://github.com/wzzheng686/smart-multi-agent-workflow"
-- "Add the smart multi-agent workflow skill to my setup"
+- "Install the smart-agent skill from https://github.com/wzzheng686/smart-agent"
+- "Add the smart agent skill to my setup"
 
 The agent will:
 1. Clone the repository
@@ -47,7 +47,7 @@ The agent will:
 
 ```bash
 # Clone the repository
-git clone https://github.com/wzzheng686/smart-multi-agent-workflow.git
+git clone https://github.com/wzzheng686/smart-agent.git
 
 # Copy the SKILL.md to your skills directory
 # For OpenCode:
