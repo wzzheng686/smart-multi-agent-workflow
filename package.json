@@ -1,6 +1,6 @@
 {
   "name": "smart-agent",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.1",
   "description": "SMART principles-based multi-agent workflow for task quality optimization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
