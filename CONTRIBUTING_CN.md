@@ -10,7 +10,7 @@
 
 ### 报告Bug
 
-1. 检查[Bug报告](https://github.com/yourusername/smart-multi-agent-workflow/issues)中是否已有相同问题
+1. 检查[Bug报告](https://github.com/wzzheng686/smart-agent/issues)中是否已有相同问题
 2. 如果没有，请创建新Issue，包含：
    - 清晰、描述性的标题
    - 问题描述
@@ -41,10 +41,10 @@
 
 ```bash
 # 克隆您的fork
-git clone https://github.com/yourusername/smart-multi-agent-workflow.git
+git clone https://github.com/wzzheng686/smart-agent.git
 
 # 进入目录
-cd smart-multi-agent-workflow
+cd smart-agent
 
 # 安装依赖
 npm install
@@ -158,7 +158,7 @@ git push origin feature/your-feature-name
 
 如果您对贡献有疑问，可以通过以下方式：
 
-1. 在[Issues](https://github.com/yourusername/smart-multi-agent-workflow/issues)中打开一个带"question"标签的Issue
-2. 在[Discussions](https://github.com/yourusername/smart-multi-agent-workflow/discussions)中加入讨论
+1. 在[Issues](https://github.com/wzzheng686/smart-agent/issues)中打开一个带"question"标签的Issue
+2. 在[Discussions](https://github.com/wzzheng686/smart-agent/discussions)中加入讨论
 
 感谢您的贡献！

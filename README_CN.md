@@ -18,10 +18,10 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/smart-multi-agent-workflow.git
+git clone https://github.com/wzzheng686/smart-agent.git
 
 # 进入目录
-cd smart-multi-agent-workflow
+cd smart-agent
 
 # 安装依赖
 npm install

@@ -10,7 +10,7 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### Reporting Bugs
 
-1. Check if the bug has already been reported in [Issues](https://github.com/yourusername/smart-multi-agent-workflow/issues)
+1. Check if the bug has already been reported in [Issues](https://github.com/wzzheng686/smart-agent/issues)
 2. If not, create a new issue with:
    - A clear, descriptive title
    - A description of the problem
@@ -41,10 +41,10 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ```bash
 # Clone your fork
-git clone https://github.com/yourusername/smart-multi-agent-workflow.git
+git clone https://github.com/wzzheng686/smart-agent.git
 
 # Navigate to the directory
-cd smart-multi-agent-workflow
+cd smart-agent
 
 # Install dependencies
 npm install
@@ -159,6 +159,6 @@ When adding new user-facing strings:
 If you have questions about contributing, feel free to:
 
 1. Open an issue with the "question" label
-2. Join our discussions in [Discussions](https://github.com/yourusername/smart-multi-agent-workflow/discussions)
+2. Join our discussions in [Discussions](https://github.com/wzzheng686/smart-agent/discussions)
 
 Thank you for contributing!

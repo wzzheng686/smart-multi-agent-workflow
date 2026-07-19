@@ -12,10 +12,10 @@ This guide will help you get started with the Smart Multi-Agent Workflow system.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/smart-multi-agent-workflow.git
+git clone https://github.com/wzzheng686/smart-agent.git
 
 # Navigate to the directory
-cd smart-multi-agent-workflow
+cd smart-agent
 
 # Install dependencies
 npm install
