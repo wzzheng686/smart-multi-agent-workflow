@@ -68,8 +68,28 @@ After installation, verify the skill is available:
 # Check if the skill appears in your agent's skill list
 npx skills list
 
-# Or search for it
+# Or search for it (remote registry only)
 npx skills find smart
+```
+
+### Search Local Skills
+
+The `npx skills find` command only searches the remote registry. To search locally installed skills, use the included PowerShell script:
+
+```bash
+# Search both local and remote skills
+.\scripts\smart-find.ps1 -Query "smart"
+
+# Example output:
+# Searching for: smart
+#
+# Local Installed Skills:
+#   smart-agent (global)
+#   └ C:\Users\you\.agents\skills\smart-agent
+#
+# Remote Skills:
+#   jackwener/opencli@smart-search 13676 installs
+#   └ https://skills.sh/...
 ```
 
 ## Quick Start
