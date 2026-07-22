@@ -1,220 +1,151 @@
 ---
 name: smart-agent
-description: "SMART principles-based multi-agent workflow for task quality optimization. Use when defining tasks with Specific, Measurable, Achievable, Relevant, Time-bound criteria, dispatching tasks to subagents, running self-checks, verifying acceptance, or archiving workflow configurations. Triggers on: SMART task, task definition, task dispatch, self-check, acceptance verification, workflow archive, multi-agent coordination."
+description: "SMART principles-based workflow for AI agents. Use when you need to decompose a vague request into a verifiable task, dispatch work to a subagent with clear criteria, self-check output against requirements, or accept/reject delivered work against structured criteria. Triggers on: task definition, task dispatch, self-check, acceptance verification, multi-step work breakdown."
 ---
 
-# Smart Multi-Agent Workflow
+# Smart Agent — SMART Workflow for AI Agents
 
-A workflow system for creating high-quality tasks using SMART principles, dispatching them to subagents, and verifying completion.
+A structured workflow that helps AI agents decompose vague requests into verifiable tasks, execute them through subagents, and verify the results.
 
 ## When to Use
 
-- **Defining tasks**: Transform vague requests into concrete, measurable, verifiable task definitions
-- **Dispatching to subagents**: Generate structured prompts with clear acceptance criteria
-- **Self-checking**: Subagents assess their own work before submission
-- **Acceptance verification**: Main agents verify deliverables against requirements
-- **Archiving**: Package workflow configurations for reuse across environments
+- **Task definition**: Turn a fuzzy request into a concrete, verifiable task
+- **Task dispatch**: Hand off work to a subagent with complete context
+- **Self-check**: Verify your own output before declaring done
+- **Acceptance**: Review delivered work against original requirements
 
-## SMART Framework
+## SMART for AI Agent
 
-| Dimension | Question | Example |
-|-----------|----------|---------|
-| **S**pecific | What exactly needs to be done? | "Implement JWT auth middleware" |
-| **M**easurable | How to verify completion? | "All tests pass, coverage > 90%" |
-| **A**chievable | Is it realistic given constraints? | "Using existing Express framework" |
-| **R**elevant | Why does it matter? | "Required for all protected routes" |
-| **T**ime-bound | When is it due? | "Complete within 2 hours" |
+| Dimension | Meaning for AI Agents |
+|-----------|----------------------|
+| **S**pecific | Precise file paths, interface signatures, output format. Not "add auth" but "add `src/middleware/auth.ts` that exports `requireAuth` middleware checking JWT in `Authorization: Bearer` header." |
+| **M**easurable | Concrete verification commands. Not "tests pass" but "`npm test` exits 0, `tsc --noEmit` has 0 errors, `curl localhost:3000/api/me` returns 401 without token." |
+| **A**chievable | The task fits in context window / token budget. Dependencies are available. You have the tools and access needed. |
+| **R**elevant | Why this task now? What does it unblock? What existing code does it connect to? |
+| **T**ime-bound | Token budget or subagent round limit for this task. Not "2 hours" but "3 subagent rounds max" or "under 8K tokens of output." |
 
-## Core Workflow
+## Workflow
 
-### 1. Task Definition
+### 1. Define
 
-Transform abstract requests into structured SMART tasks:
+When given a vague task, turn it into a structured definition before acting.
 
-```json
-{
-  "task_id": "task-abc123",
-  "specific": "Implement JWT-based user authentication with login, logout, and token refresh",
-  "measurable": "Auth middleware handles 100% of protected routes, tests pass with >90% coverage",
-  "achievable": "Using existing Express framework and jsonwebtoken library",
-  "relevant": "Required for all user-facing features, blocks profile implementation",
-  "time_bound": "Complete within 2 hours",
-  "deliverables": [
-    { "name": "auth-middleware.ts", "type": "file", "description": "JWT verification middleware" },
-    { "name": "auth.test.ts", "type": "test", "description": "Unit tests with 90%+ coverage" }
-  ],
-  "acceptance_criteria": [
-    { "criterion": "POST /api/auth/login returns JWT token", "verifiable": true },
-    { "criterion": "Protected routes return 401 without valid token", "verifiable": true }
-  ],
-  "resources": [
-    { "name": "Express.js", "type": "library" },
-    { "name": "User model", "type": "file", "path": "src/models/user.ts" }
-  ],
-  "risks": [
-    { "risk": "Token refresh edge cases", "impact": "medium", "mitigation": "Careful state machine implementation" }
-  ],
-  "metadata": {
-    "priority": "high",
-    "complexity": "moderate",
-    "created_at": "2026-07-19T10:00:00Z"
-  }
-}
+```
+## SMART Task: <task-name>
+
+**S - Specific**
+What exactly needs to be produced?
+- Files to create/modify with paths
+- Functions/interfaces with signatures
+- Expected output format
+
+**M - Measurable**
+How will you verify completion?
+- Build/test/lint commands
+- Expected exit codes
+- Behavioral assertions
+
+**A - Achievable**
+What resources are needed?
+- Existing code to reference
+- Libraries/tools available
+- Context window assessment
+
+**R - Relevant**
+Why this task now?
+- What it enables next
+- Connection to current codebase
+
+**T - Time-bound**
+What's the budget?
+- Max subagent rounds: <N>
+- Max output tokens: <N>
+
+**Deliverables:**
+- [ ] <file/result 1>
+- [ ] <file/result 2>
+
+**Acceptance Criteria:**
+- [ ] <criterion 1>
+- [ ] <criterion 2>
 ```
 
-### 2. Task Dispatch
+### 2. Dispatch
 
-Generate structured prompts for subagents using your platform's task dispatch mechanism:
+When handing work to a subagent, wrap the SMART task into the subagent's instructions. The template below is for you (the dispatching agent) to fill in as the subagent's prompt:
 
-**Generic Task Dispatch Template:**
-
-```markdown
-## Task: [task_id]
-
-### What to Do
-[specific description from SMART task]
-
-### Why It Matters
-[relevant context]
-
-### Deliverables
-1. [deliverable 1]
-2. [deliverable 2]
-...
-
-### Acceptance Criteria
-- [ ] [criterion 1]
-- [ ] [criterion 2]
-...
-
-### Resources
-- [resource 1]
-- [resource 2]
-...
-
-### Constraints
-- Time: [time_bound]
-- Scope: [scope limitations]
-- Quality: [quality requirements]
-
-### When Done
-1. Run self-check using smart-self-check skill
-2. Generate completion report
-3. Submit for review
+```
+[CONTEXT]: <the codebase context the subagent needs>
+[TASK]: <paste the full SMART task definition from step 1>
+[SCOPE]: <what's in scope, what's out>
+[CONSTRAINTS]: <time/quality constraints>
+[WHEN DONE]: 
+1. Run self-check against each acceptance criterion
+2. Report results with evidence
 ```
 
-**Platform Adaptation:**
-- Use your AI agent's native task dispatch mechanism
-- Load relevant skills (e.g., `smart-self-check`, `verification-before-completion`)
-- Adjust task categories based on your platform's options
+### 3. Self-Check
 
-### 3. Self-Check (Subagent)
+Before submitting work, verify each SMART dimension:
 
-Before submitting, subagents generate a completion report:
+```
+## Self-Check Report
 
-```json
-{
-  "task_id": "task-abc123",
-  "subagent_id": "subagent-xyz",
-  "check_timestamp": "2026-07-19T11:30:00Z",
-  "completion_percentage": 100,
-  "smart_scores": {
-    "specific": { "score": 95, "evidence": "All requested functionality implemented" },
-    "measurable": { "score": 90, "evidence": "Tests passing, coverage at 92%" },
-    "achievable": { "score": 95, "evidence": "Solution is practical and maintainable" },
-    "relevant": { "score": 100, "evidence": "Directly addresses security requirements" },
-    "time_bound": { "score": 95, "evidence": "Completed within time limit" }
-  },
-  "overall_score": 95,
-  "confidence_level": "high"
-}
+**Task:** <task-name>
+
+| Criterion | Status | Evidence |
+|-----------|--------|----------|
+| S - All required files produced? | [PASS/FAIL] | <file listing> |
+| M - Verification commands pass? | [PASS/FAIL] | <command output> |
+| A - Within budget/tools? | [PASS/FAIL] | <assessment> |
+| R - Properly connected? | [PASS/FAIL] | <dependencies satisfied> |
+| T - Within round limit? | [PASS/FAIL] | <rounds used> |
+
+**Overall:** <PASS / REVISE>
+
+**If REVISE:** <what needs fixing>
 ```
 
-### 4. Acceptance Verification (Main Agent)
+### 4. Acceptance
 
-Verify deliverables independently:
+When reviewing delivered work, independently verify:
 
-```json
-{
-  "task_id": "task-abc123",
-  "acceptance_id": "acc-task-abc123-xyz",
-  "decision": "accepted",
-  "verifier": "main-agent",
-  "verification_results": {
-    "specific": { "passed": true, "evidence": "All functionality matches requirements" },
-    "measurable": { "passed": true, "evidence": "Tests pass, coverage >90%" },
-    "achievable": { "passed": true, "evidence": "Code quality is acceptable" },
-    "relevant": { "passed": true, "evidence": "Aligns with project architecture" },
-    "time_bound": { "passed": true, "evidence": "Completed within deadline" }
-  },
-  "overall_score": 100,
-  "decision_rationale": "All acceptance criteria met"
-}
 ```
+## Acceptance Verification
 
-## Quality Gates
+**Task:** <task-name>
 
-### Must Pass (Critical)
-- All tests passing
-- No type errors
-- No lint errors
-- Core functionality working
+### S - Specific
+- [ ] All required files exist at expected paths
+- [ ] Interfaces match the spec
+- [ ] Output format matches requirements
 
-### Should Pass (Major)
-- Code coverage > 80%
-- Documentation complete
-- No TODO/FIXME in new code
+### M - Measurable
+- [ ] Build succeeds (tsc --noEmit / cargo check / etc.)
+- [ ] Tests pass
+- [ ] Manual verification confirms behavior
 
-### Nice to Have (Minor)
-- Performance benchmarks met
-- Edge cases handled
-- Error messages clear
+### A - Achievable
+- [ ] No unnecessary dependencies added
+- [ ] Solution fits project patterns
 
-## Platform Adaptation Guide
+### R - Relevant
+- [ ] Integration points are correct
+- [ ] Follows existing architecture
 
-This skill is designed to work with any AI agent that supports task dispatch and skill loading. To adapt to your platform:
+### T - Time-bound
+- [ ] Completed within budget
 
-### Task Dispatch
-- Use your platform's native task dispatch mechanism
-- Map the generic task template to your platform's format
-- Adjust task categories based on your platform's options
+**Decision:** <ACCEPT / REVISE (round <N+1>)>
 
-### Skill Loading
-- Load `smart-self-check` skill for subagent self-assessment
-- Load `verification-before-completion` skill for verification
-- Adjust skill names based on your platform's naming conventions
-
-### Common Platforms
-- **OpenCode**: Use `task()` with category and load_skills parameters
-- **Claude Code**: Use Task tool with instructions and skill loading
-- **Codex**: Use task with type and tools parameters
-- **Hermes**: Use task with type and tools parameters
-
-## Example: Complete Workflow
-
-```markdown
-1. Define SMART task using the template above
-2. Dispatch to subagent using your platform's task mechanism
-3. Subagent executes and generates self-check report
-4. Main agent verifies acceptance
-5. Archive workflow configuration if needed
-```
-
-## Archive Operations
-
-Package workflow configurations for reuse:
-
-```markdown
-1. Collect workflow configuration files
-2. Create archive with metadata (version, description, author)
-3. Include platform compatibility information
-4. Store in reusable format
+**If REVISE:** <specific issues to fix>
+**If ACCEPT:** <confirmation of completion>
 ```
 
 ## Tips
 
-1. **Be specific**: Vague tasks lead to vague results
-2. **Include test criteria**: If you can't test it, you can't verify it
-3. **Document risks**: Anticipating problems helps subagents prepare
-4. **Use evidence**: Claims without proof are worthless
-5. **One task, one focus**: Each dispatch should have a single clear objective
+- **Be ruthless with S**: Vague Specific leads to the most rework. Include exact file paths and signatures.
+- **Verifiable M**: If you can't write a command to check it, it's not measurable.
+- **A is often the bottleneck**: If the task requires reading 50 files, it probably exceeds context. Break it down.
+- **Keep T realistic**: 2-3 subagent rounds max. Beyond that, decompose into smaller tasks.
+- **Revise, don't restart**: Acceptance failures should send clear, actionable feedback — not "start over."
